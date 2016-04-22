@@ -10,7 +10,7 @@ class Tuet(models.Model):
 	author = models.ForeignKey('TuetiUser')
 	response_to = models.ForeignKey('Tuet', blank=True, null=True)
 	created = models.DateTimeField(default=timezone.now)
-	liked_by = models.ManyToManyField(User, blank=True, related_name='liked_tuets')
+	liked_by = models.ManyToManyField('TuetiUser', blank=True, related_name='liked_tuets')
 
 	def is_comment(self):
 		return bool(response_to)
